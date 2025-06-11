@@ -192,3 +192,19 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# ================================
+# RED FLAGS PROFITS - DATA FILES  
+# ================================
+
+# Data directory (contains source parquet files)
+data/
+!data/.gitkeep
+
+# Output directory (contains generated analysis files)
+output/
+!output/.gitkeep
+
+# Log files from analysis
+*.log
+analysis.log

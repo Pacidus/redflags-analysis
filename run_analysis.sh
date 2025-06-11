@@ -15,18 +15,18 @@ fi
 echo "📂 Found parquet data file"
 
 # Create output directory if it doesn't exist
-mkdir -p data/output
+mkdir -p output
 
 echo "🚀 Running data analysis..."
 
 # Run the basic analyzer
-if python3 data_analyzer.py --input data/all_billionaires.parquet --output-dir data/output; then
+if python3 data_analyzer.py --input data/all_billionaires.parquet --output-dir output; then
     echo "✅ Basic analysis completed!"
     
     # Run enhanced analysis if the files exist
     if [ -f "sparkline_generator.py" ] && [ -f "enhanced_analyzer.py" ]; then
         echo "🚀 Running enhanced analysis..."
-        if python3 enhanced_analyzer.py --input data/all_billionaires.parquet --output-dir data/output --summary; then
+        if python3 enhanced_analyzer.py --input data/all_billionaires.parquet --output-dir output --summary; then
             echo "✅ Enhanced analysis completed!"
         else
             echo "⚠️  Enhanced analysis failed, but basic analysis succeeded"
@@ -36,8 +36,8 @@ if python3 data_analyzer.py --input data/all_billionaires.parquet --output-dir d
     fi
     
     echo ""
-    echo "📊 Generated files in data/output/:"
-    ls -la data/output/
+    echo "📊 Generated files in output/:"
+    ls -la output/
     
     echo ""
     echo "🎉 Analysis complete! Files ready for website generation."
